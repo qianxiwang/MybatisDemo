@@ -5,12 +5,12 @@
 
 
 <!--<mapper namespace="User">-->
+    <!--<select id="queryAll" resultType="hashmap">-->
+    <!--SELECT * FROM user-->
+    <!--</select>-->
+<!--</mapper>-->
 
 <mapper namespace="com.study.Operation.UserOperation">
-
-    <select id="queryAll" resultType="hashmap">
-    SELECT * FROM user
-    </select>
 
 
     <!--条件查询-->
@@ -26,7 +26,7 @@
 
     <!--更新一条记录-->
     <update id="update" parameterType="com.study.domain.User">
-        update student set pass=#{pass} where name=#{name}
+        update user set pass=#{pass} where name=#{name}
     </update>
 
     <!--删除一条记录-->

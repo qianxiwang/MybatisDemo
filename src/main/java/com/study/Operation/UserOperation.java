@@ -10,5 +10,8 @@ public interface UserOperation {
 
     public void add(User user);
 
+    public void update(User user);
+
+    public void delete(String name);
 
 }

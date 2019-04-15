@@ -69,7 +69,7 @@ public class AppTest {
     }
 
     @org.junit.Test
-    public void selectById02() {
+    public void selectByName02() {
 
         String resource = "mybatis-config.xml";
         InputStream inputStream;
@@ -122,6 +122,62 @@ public class AppTest {
             e.printStackTrace();
 
         }
+
+
+    }
+
+    @org.junit.Test
+    public void delete() {
+
+        String resource = "mybatis-config.xml";
+        InputStream inputStream;
+
+        try {
+            inputStream = Resources.getResourceAsStream(resource);
+            SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+
+            SqlSession sqlSession = sqlSessionFactory.openSession();
+
+            UserOperation userOperation = sqlSession.getMapper(UserOperation.class);
+
+            userOperation.delete("test");
+
+            sqlSession.commit();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+
+        }
+
+    }
+
+
+    @org.junit.Test
+    public void update() {
+
+        String resource = "mybatis-config.xml";
+        InputStream inputStream;
+
+        try {
+            inputStream = Resources.getResourceAsStream(resource);
+            SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+
+            SqlSession sqlSession = sqlSessionFactory.openSession();
+
+            UserOperation studentOperation = sqlSession.getMapper(UserOperation.class);
+
+            User user = new User();
+            user.setName("add");
+            user.setPass("addadd");
+
+            studentOperation.update(user);
+            sqlSession.commit();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+
+        }
+
 
     }
 
