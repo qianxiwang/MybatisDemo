@@ -8,15 +8,6 @@ public class Employee {
 
     private Department department;
 
-
-    public Department getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(Department department) {
-        this.department = department;
-    }
-
     public Employee() {
     }
 
@@ -49,4 +40,14 @@ public class Employee {
     public void setDeptid(int deptid) {
         this.deptid = deptid;
     }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
+
 }

@@ -27,7 +27,35 @@ public class EmployeeTest {
 
             sqlSession = sqlSessionFactory.openSession();
 
-            List<Map> list = sqlSession.selectList("com.study.Operation.EmployeeOperation.findEmployees");
+            List<Map> list = sqlSession.selectList("EmployeeOperation.findEmployees");
+
+            for (Map map : list) {
+                System.out.println(map);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            sqlSession.close();
+        }
+
+    }
+
+
+    @Test
+    public void selectEmployee() {
+
+        String resource = "mybatis-config.xml";
+        InputStream inputStream;
+        SqlSession sqlSession = null;
+
+        try {
+            inputStream = Resources.getResourceAsStream(resource);
+            SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+
+            sqlSession = sqlSessionFactory.openSession();
+
+            List<Map> list = sqlSession.selectList("EmployeeOperation.selectEmployee");
 
             System.out.println(list);
 

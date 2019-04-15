@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 
-<mapper namespace="com.study.Operation.EmployeeOperation">
+<mapper namespace="EmployeeOperation">
 
     <!--联合查询-->
     <select id="findEmployees" resultType="hashmap">
@@ -12,21 +12,34 @@
 		where employee.deptid=department.id
 	</select>
 
-    <!--联合查询的另一种方式-->
-    <!--<resultMap id="employee" type="com.study.domain.Employee">-->
-        <!--<id property="username" column="username"/>-->
-        <!--<result property="password" column="password"/>-->
-        <!--<result property="deptid" column="deptid"/>-->
-    <!--</resultMap>-->
+    <!--联合查询的另一种方式
+    <resultMap id="employee" type="com.study.domain.Employee">
+    <id property="username" column="username"/>
+    <result property="password" column="password"/>
+    <result property="deptid" column="deptid"/>
+    </resultMap>
 
-    <!--<select id="findEmployees" resultMap="employee">-->
-		<!--select * from employee,department-->
-		<!--where employee.deptid=department.id-->
-	<!--</select>-->
+    <select id="findEmployees" resultMap="employee">
+    select * from employee,department
+    where employee.deptid=department.id
+    </select>
+    -->
 
+    <resultMap type="com.study.domain.Employee" id="employee">
+        <id property="username" column="username"/>
+        <result property="password" column="password"/>
+        <result property="deptid" column="deptid"/>
+        <!--department是Employee实体类的属性-->
+        <association property="department" javaType="com.study.domain.Department">
+            <id property="id" column="id"/>
+            <result property="deptname" column="deptname"/>
+        </association>
+    </resultMap>
 
-
-
+    <select id="selectEmployee" resultMap="employee">
+       select * from employee,department
+		where employee.deptid=department.id
+    </select>
 
 
 </mapper>
