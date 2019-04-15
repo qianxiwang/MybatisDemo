@@ -13,8 +13,9 @@ import java.util.Map;
 
 public class EmployeeTest {
 
+
     @Test
-    public void findEmployees() {
+    public void findEmployees01() {
 
         String resource = "mybatis-config.xml";
         InputStream inputStream;

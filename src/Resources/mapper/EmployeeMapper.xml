@@ -6,9 +6,27 @@
 
 <mapper namespace="com.study.Operation.EmployeeOperation">
 
+    <!--联合查询-->
     <select id="findEmployees" resultType="hashmap">
 		select * from employee,department
 		where employee.deptid=department.id
 	</select>
+
+    <!--联合查询的另一种方式-->
+    <!--<resultMap id="employee" type="com.study.domain.Employee">-->
+        <!--<id property="username" column="username"/>-->
+        <!--<result property="password" column="password"/>-->
+        <!--<result property="deptid" column="deptid"/>-->
+    <!--</resultMap>-->
+
+    <!--<select id="findEmployees" resultMap="employee">-->
+		<!--select * from employee,department-->
+		<!--where employee.deptid=department.id-->
+	<!--</select>-->
+
+
+
+
+
 
 </mapper>

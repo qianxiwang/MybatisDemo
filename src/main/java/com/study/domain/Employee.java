@@ -6,6 +6,17 @@ public class Employee {
     private String password;
     private int deptid;
 
+    private Department department;
+
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
     public Employee() {
     }
 
