@@ -19,4 +19,20 @@
     </select>
 
 
+    <!--插入新纪录-->
+    <insert id="add" parameterType="com.study.domain.User">
+        insert into User values(#{name},#{pass})
+    </insert>
+
+    <!--更新一条记录-->
+    <update id="update" parameterType="com.study.domain.User">
+        update student set pass=#{pass} where name=#{name}
+    </update>
+
+    <!--删除一条记录-->
+    <delete id="delete" parameterType="com.study.domain.User">
+        delete from user where name =#{name}
+    </delete>
+
+
 </mapper>
