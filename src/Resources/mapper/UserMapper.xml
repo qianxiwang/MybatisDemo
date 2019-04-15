@@ -5,19 +5,17 @@
 
 
 <!--<mapper namespace="User">-->
-    <!--<select id="queryAll" resultType="hashmap">-->
-    <!--SELECT * FROM user-->
-    <!--</select>-->
+<!--<select id="queryAll" resultType="hashmap">-->
+<!--SELECT * FROM user-->
+<!--</select>-->
 <!--</mapper>-->
 
 <mapper namespace="com.study.Operation.UserOperation">
-
 
     <!--条件查询-->
     <select id="selectByName" parameterType="String" resultType="hashmap">
     select * from user where name =#{name}
     </select>
-
 
     <!--插入新纪录-->
     <insert id="add" parameterType="com.study.domain.User">

@@ -19,7 +19,8 @@
     </environments>
 
     <mappers>
-        <mapper resource="mapper/UserMapper.xml"></mapper>
+        <!--<mapper resource="mapper/UserMapper.xml"></mapper>-->
+        <mapper resource="mapper/EmployeeMapper.xml"></mapper>
     </mappers>
 
 </configuration>
